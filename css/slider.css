@@ -1,0 +1,334 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.slider-main {
+  height: 50vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform: translateY(50px);
+}
+
+.card .num-container {
+  position: relative;
+  bottom: 7.5rem;
+  left: -105px;
+  letter-spacing: -15px;
+}
+.card .num-container > .num-before::before {
+  content: attr(data-content);
+  -webkit-text-fill-color: rgb(0, 0, 0);
+  -webkit-text-stroke: 0;
+  position: absolute;
+}
+.card .num-container > .num-before {
+  line-height: 1;
+  display: inline-block;
+  font-size: 7rem;
+  position: relative;
+  font-weight: 700;
+  color: rgb(65, 65, 65);
+  -webkit-text-stroke: 0.25rem rgb(255, 255, 255);
+  text-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.5);
+}
+.card .num-container > .num {
+  font-family: sans-serif;
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  clip: rect(0 0 0 0);
+}
+
+.slide-container {
+  display: flex;
+  align-items: center;
+  max-width: 1120px;
+  position: relative;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.slide-content {
+  display: flex;
+  align-items: center;
+    margin: 0px 20px;
+    padding: 40px 16px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  border-radius: 25px;
+}
+.card-wrapper > .card > .btn {
+  background-color: transparent;
+  outline: none;
+  border: 0px;
+}
+.card-wrapper > .card > .btn:hover {
+  transform: scale(1.05);
+  transition: transform 400ms ease-in-out;
+}
+.card-wrapper .card {
+  padding: 0px 15px;
+  margin: 0;
+  list-style: none;
+}
+.card-image {
+  position: relative;
+  height: 260px;
+  width: 200px;
+  padding: 3px;
+}
+
+.card-image .card-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.swiper-navBtn {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.swiper-navBtn::before,
+.swiper-navBtn::after {
+  font-size: 20px;
+  font-weight: bolder;
+}
+.swiper-button-next {
+  right: 0;
+}
+.swiper-button-prev {
+  left: 0;
+}
+.swiper-pagination-bullet {
+  opacity: 1;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.next-container:hover,
+.prev-container:hover {
+  background: linear-gradient(149deg, #2e2f31 0%, #2d2d2d 96.86%);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Light glow */
+}
+.next-container {
+  border-radius: 20px;
+  background-color: black;
+  position: absolute;
+  top: 37%;
+  transform: translateY(-50%);
+  width: 25px;
+  height: 264px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  right: 35px;
+  transform: translate(100%, -50%);
+  transition: transform 0.4s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0);
+  transition: background 0.8s ease-in-out;
+}
+.prev-container {
+  border-radius: 20px;
+  background-color: black;
+  position: absolute;
+  top: 37%;
+  transform: translateY(-50%);
+  width: 25px;
+  height: 264px;
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  left: 35px;
+  transform: translate(-100%, -50%);
+  transition: transform 0.4s ease;
+}
+
+/* Tablets (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+  .slide-container {
+    margin-top: 30px;
+    padding: 0 15px;
+  }
+
+  .slide-content {
+    margin: 0px 4px;
+  }
+
+  .card {
+    width: 260px;
+    transform: translateY(40px);
+  }
+
+  .card-image {
+    height: 220px;
+    width: 170px;
+  }
+
+  .card .num-container > .num-before {
+    font-size: 5.5rem;
+  }
+.card-wrapper .card {
+  margin-right: 58px !important;
+}
+  .card .num-container {
+    left: -62px;
+    bottom: 6.5rem;
+    letter-spacing: -12px;
+  }
+  .next-container {
+    right: 34px;
+  }
+  .prev-container {
+    left: 34px;
+  }
+  .next-container,
+  .prev-container {
+    top: 38.7%;
+    width: 35px;
+    height: 214px;
+    border-radius: 2px;
+  }
+}
+
+/* Mobile & Small Tablets (max-width: 768px) */
+@media screen and (max-width: 767px){
+  
+  .swiper-navBtn {
+    display: none;
+  }
+  .slide-content {
+    margin: 0 40px;
+    padding: 30px 0;
+  }
+
+  .card {
+    width: 220px;
+    transform: translateY(30px);
+  }
+
+  .card-image {
+    height: 190px;
+    width: 140px;
+  }
+
+  .card .num-container > .num-before {
+    font-size: 4rem;
+    -webkit-text-stroke: 0.2rem white;
+  }
+
+  .card .num-container {
+    left: -75px;
+    bottom: 80px;
+    letter-spacing: -10px;
+  }
+  .next-container {
+    right: 20px;
+  }
+  .prev-container {
+    left: 20px;
+  }
+  .next-container,
+  .prev-container {
+    top: 40%;
+    height: 156px;
+    width: 25px;
+       transform: translateY(-50%);
+  }
+}
+@media screen and (max-width: 540px) {
+    .card .num-container {
+        left: -52px;
+    }
+        .next-container, .prev-container {
+        height: 184px;
+        }
+            .slide-content {
+        margin: 0 20px;}
+            .card-wrapper .card {
+        margin-right: 18px !important;
+    }
+
+  }
+/* Very Small Devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .slide-container {
+    margin-top: 20px;
+  }
+
+  .slide-content {
+    margin: 0 20px;
+    padding: 0px 3px;
+  }
+
+  .card {
+    width: 180px;
+  }
+
+  .card-image {
+    height: 160px;
+    width: 120px;
+  }
+.card-wrapper .card {
+       padding: 0px;
+       margin-left: 4px;
+           margin-right: 45px !important;
+  }
+  .card .num-container > .num-before {
+    font-size: 3rem;
+    -webkit-text-stroke: 0.15rem white;
+  }
+
+  .card .num-container {
+    bottom: 4.5rem;
+    left: -50px;
+    letter-spacing: -8px;
+  }
+   .next-container {
+    right: 6px;
+  }
+  .prev-container {
+    left: 6px;
+  }
+  .next-container,
+  .prev-container {
+    top: 38%;
+    height: 156px;
+    width: 25px;
+  }
+}
+@media screen and (max-width: 360px) {
+   .card .num-container {
+    left: -40px;
+  }
+}
